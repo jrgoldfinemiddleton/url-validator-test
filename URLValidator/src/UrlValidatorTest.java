@@ -89,6 +89,7 @@ public class UrlValidatorTest extends TestCase {
    
    public void testIsValid()
    {
+   {
 	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
 	   
 	   final String[] validSchemes = {
@@ -156,22 +157,37 @@ public class UrlValidatorTest extends TestCase {
 			   validQueries
 	   };
 	   
+	   /* invalid schemes then valid */
 	   for (int p1 = 0; p1 != 2; ++p1) {
 		   for (int q1 = 0; q1 != schemeSets[p1].length; ++q1) {
+			   
+			   /* invalid authorities then valid */
 			   for (int p2 = 0; p2 != 2; ++p2) {
 				   for (int q2 = 0; q2 != authoritySets[p2].length; ++q2) {
+					   
+					   /* invalid ports then valid */
 					   for (int p3 = 0; p3 != 2; ++p3) {
 						   for (int q3 = 0; q3 != portSets[p3].length; ++q3) {
+							   
+							   /* invalid paths then valid */
 							   for (int p4 = 0; p4 != 2; ++p4) {
 								   for (int q4 = 0; q4 != pathSets[p4].length; ++q4) {
+									   
+									   /* invalid queries then valid */
 									   for (int p5 = 0; p5 != 2; ++p5) {
 										   for (int q5 = 0; q5 != querySets[p5].length; ++q5) {
+											   
+											   /* make a combo of parts */
 											   String testUrl = schemeSets[p1][q1]
 													   + authoritySets[p2][q2]
 													   + portSets[p3][q3]
 													   + pathSets[p4][q4]
 													   + querySets[p5][q5];
+											   
+											   /* if any part is invalid, whole URL should be invalid */
 											   boolean expected = (q1 & q2 & q3 & q4 & q5) == 1;
+											   
+											   /* print unexpected results only */
 											   boolean actual = urlVal.isValid(testUrl);
 											   if (expected != actual) {
 												   System.out.println(testUrl + ": " + actual);
