@@ -132,28 +132,28 @@ public class UrlValidatorTest extends TestCase {
 	   };	   
 	   
 	   final String[][] schemeSets = {
-			   validSchemes,
-			   invalidSchemes
+			   invalidSchemes,
+			   validSchemes
 	   };
 	   
 	   final String[][] authoritySets = {
-			   validAuthorities,
-			   invalidAuthorities
+			   inlidAuthorities,
+			   validAuthorities
 	   };
 	   
 	   final String[][] portSets = {
-			   validPorts,
-			   invalidPorts
+			   invalidPorts,
+			   validPorts
 	   };
 	   
 	   final String[][] pathSets = {
-			   validPaths,
-			   invalidPaths
+			   invalidPaths,
+			   validPaths
 	   };
 	   
 	   final String[][] querySets = {
-			   validQueries,
-			   invalidQueries
+			   invalidQueries,
+			   validQueries
 	   };
 	   
 	   for (int p1 = 0; p1 != 2; ++p1) {
