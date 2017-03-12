@@ -137,7 +137,7 @@ public class UrlValidatorTest extends TestCase {
 	   };
 	   
 	   final String[][] authoritySets = {
-			   inlidAuthorities,
+			   invalidAuthorities,
 			   validAuthorities
 	   };
 	   
