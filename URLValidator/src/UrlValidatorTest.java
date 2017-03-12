@@ -41,13 +41,39 @@ public class UrlValidatorTest extends TestCase {
    public void testManualTest()
    {
 	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
-	   System.out.println(urlVal.isValid("http://www.amazon.com"));
-	   System.out.println(urlVal.isValid("ftp://www.amazon.com"));
-	   System.out.println(urlVal.isValid("file://www.amazon.com"));
-	   System.out.println(urlVal.isValid("www.amazon.com"));
-	   System.out.println(urlVal.isValid("amazon.com"));
-	   System.out.println(urlVal.isValid(".com"));
-	   System.out.println(urlVal.isValid("com"));
+	   
+	   String[] validUrls = {
+			   "http://www.amazon.com",
+			   "ftp://www.amazon.com",
+			   "file://www.amazon.com",
+			   "www.amazon.com",
+			   "amazon.com"
+	   };
+	   
+	   String[] invalidUrls = {
+			   ".com",
+			   "com"
+	   };
+	   
+	   System.out.println("TESTING VALID URLS\n");
+	   
+	   for (int i = 0; i != validUrls.length; ++i) {
+		   String testUrl = validUrls[i];
+		   
+		   if (!urlVal.isValid(testUrl)) {
+			   System.out.println(testUrl);
+		   }
+	   }
+	   
+	   System.out.println("\nTESTING INVALID URLS\n");
+	   
+	   for (int i = 0; i != invalidUrls.length; ++i) {
+		   String testUrl = invalidUrls[i];
+		   
+		   if (urlVal.isValid(testUrl)) {
+			   System.out.println(testUrl);
+		   }
+	   }
    }
    
    
