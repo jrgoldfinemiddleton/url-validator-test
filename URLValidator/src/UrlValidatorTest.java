@@ -185,7 +185,7 @@ public class UrlValidatorTest extends TestCase {
 													   + querySets[p5][q5];
 											   
 											   /* if any part is invalid, whole URL should be invalid */
-											   boolean expected = (q1 & q2 & q3 & q4 & q5) == 1;
+											   boolean expected = (p1 & p2 & p3 & p4 & p5) == 1;
 											   
 											   /* print unexpected results only */
 											   boolean actual = urlVal.isValid(testUrl);
