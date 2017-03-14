@@ -132,10 +132,10 @@ public class UrlValidatorTest extends TestCase {
 	   };
 	   
 	   final String[] invalidPorts = {
-			   "70000",		// Above max range
-			   "65536",		// Above max range
-			   "-1",		// Negative number, below min range
-			   "1023"		// Below min range
+			   ":70000",		// Above max range
+			   ":65536",		// Above max range
+			   ":-1",		// Negative number, below min range
+			   ":1023"		// Below min range
 	   };
 	   
 	   final String[] invalidPaths = {
