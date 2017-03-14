@@ -89,47 +89,56 @@ public class UrlValidatorTest extends TestCase {
    
    public void testIsValid()
    {
-   {
 	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
 	   
 	   final String[] validSchemes = {
-			   
+			   "",
+			   "http://"
 	   };
 	   
 	   final String[] validAuthorities = {
-			   
+			   "www.google.com"
 	   };
 	   
 	   final String[] validPorts = {
-			   
+			   "",
+			   ":80",
+			   ":22",
+			   ":65535",
+			   ":1024"
 	   };
 	   
 	   final String[] validPaths = {
-			   
+			   ""
 	   };
 	   
 	   final String[] validQueries = {
-			   
+			   ""
 	   };
 	   
 	   final String[] invalidSchemes = {
-			   
+			   "a://b://"
 	   };
 	   
 	   final String[] invalidAuthorities = {
-			   
+			   ""
 	   };
 	   
 	   final String[] invalidPorts = {
-			   
+			   "70000",		// Above max range
+			   "65536",		// Above max range
+			   "-1",		// Negative number, below min range
+			   "1023"		// Below min range
 	   };
 	   
 	   final String[] invalidPaths = {
-			   
+			   "/te?st"
 	   };
 	   
 	   final String[] invalidQueries = {
-			   
+			   "&id=567?234&",								// Begins with '&' character, must begin query with '?'
+			   "name=test_name",							// No '?' character to begin the query
+			   "?user=test_user?password=test_password",	// (2) '?' characters in query
 	   };	   
 	   
 	   final String[][] schemeSets = {
