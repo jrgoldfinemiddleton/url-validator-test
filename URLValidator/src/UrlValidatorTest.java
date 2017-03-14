@@ -113,7 +113,14 @@ public class UrlValidatorTest extends TestCase {
 	   };
 	   
 	   final String[] validQueries = {
-			   ""
+			   // These all cause every url they're in to evaluate to invalid.
+			   // I think these should probably evaluate to true in the url validator, even if
+			   // they're not actually valid parameters for the given url. My understanding is
+			   // that isValid() should just check that the structure of the url is correct, not
+			   // whether it's a currently active/valid site.
+			   "?user=test_name",	// Single param
+			   "?a=1&b=2&c=3",		// Multiple params
+			   "?"					// Empty params
 	   };
 	   
 	   final String[] invalidSchemes = {
@@ -199,7 +206,7 @@ public class UrlValidatorTest extends TestCase {
 											   /* print unexpected results only */
 											   boolean actual = urlVal.isValid(testUrl);
 											   if (expected != actual) {
-												   System.out.println(testUrl + ": " + actual);
+												   System.out.println(actual + ":\t" + testUrl);
 											   }
 										   }
 									   }
