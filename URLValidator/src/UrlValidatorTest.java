@@ -47,7 +47,8 @@ public class UrlValidatorTest extends TestCase {
 			   "ftp://www.amazon.com",
 			   "file://www.amazon.com",
 			   "www.amazon.com",
-			   "amazon.com"
+			   "amazon.com",
+			   "https://courses.ecampus.oregonstate.edu/index.php?video=cs372/38.mp4"
 	   };
 	   
 	   String[] invalidUrls = {
