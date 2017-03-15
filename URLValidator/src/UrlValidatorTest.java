@@ -104,7 +104,14 @@ public class UrlValidatorTest extends TestCase {
 			   "www.google.com",
                            "intel.com",
                            "centaur.dream.mystery.village.org",
-                           "new.life"
+                           "new.life",
+                           "britain.co.uk",
+                           "cape-verde.cv",
+                           "192.168.0.1",
+                           "127.0.0.1",
+                           "0.0.0.0",
+                           "255.255.255.255",
+                           "45.54.45.54"
 	   };
 	   
 	   final String[] validPorts = {
@@ -144,7 +151,17 @@ public class UrlValidatorTest extends TestCase {
                            "this.is%in.valid",
                            "",
                            ".org",
-                           "google.com."
+                           "google.com.",
+                           "1.2",
+                           "256.1.1.1",
+                           "-1.0.0.1",
+                           "0.-1.0.0",
+                           ".1.8.7.5",
+                           "1.8.7.5.",
+                           "50.49.48.47.46",
+                           "55-55-55-55",
+                           "swollmoney",
+                           "mys.tryl"
 	   };
 	   
 	   final String[] invalidPorts = {
