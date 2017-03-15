@@ -94,11 +94,17 @@ public class UrlValidatorTest extends TestCase {
 	   
 	   final String[] validSchemes = {
 			   "",
-			   "http://"
+			   "http://",
+                           "https://",
+                           "ftp://"
 	   };
 	   
 	   final String[] validAuthorities = {
-			   "www.google.com"
+                           "localhost",  // This might need to be part of a manual test
+			   "www.google.com",
+                           "intel.com",
+                           "centaur.dream.mystery.village.org",
+                           "new.life"
 	   };
 	   
 	   final String[] validPorts = {
@@ -125,11 +131,20 @@ public class UrlValidatorTest extends TestCase {
 	   };
 	   
 	   final String[] invalidSchemes = {
-			   "a://b://"
+			   "a://b://",
+                           "/",
+                           "http:",
+                           "ftp",
+                           "https:/",
+                           "http:\\\\"
 	   };
 	   
 	   final String[] invalidAuthorities = {
-			   ""
+			   "test..com",
+                           "this.is%in.valid",
+                           "",
+                           ".org",
+                           "google.com."
 	   };
 	   
 	   final String[] invalidPorts = {
