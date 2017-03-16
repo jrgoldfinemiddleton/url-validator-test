@@ -75,6 +75,33 @@ public class UrlValidatorTest extends TestCase {
 			   System.out.println(testUrl);
 		   }
 	   }
+	   
+	   // Test of isValidQuery() function after observing unexpected behavior in
+	   // isValid() function with valid query strings.
+	   System.out.println("\nTESTING isValidQuery() FUNCTION\n");
+	   String[] valid_test_queries = {"?name=test_name", "?", "?a=1&b=2&c=3"};
+	   String[] invalid_test_queries = {"name?test", "&&&apples&bananas"};
+	   boolean expected;
+	   boolean observed;
+	   String test_query;
+	   
+	   // Test valid query strings
+	   for(int i = 0; i < valid_test_queries.length; i++){
+		   test_query = valid_test_queries[i];
+		   expected = true;
+		   observed = urlVal.isValidQuery(test_query);
+		   System.out.println(test_query + ": expected = " + expected + "; observed = " + observed);
+	   }
+	   
+	   // Test invalid query strings
+	   for(int i = 0; i < invalid_test_queries.length; i++){
+		   test_query = invalid_test_queries[i];
+		   expected = false;
+		   observed = urlVal.isValidQuery(valid_test_queries[i]);
+		   System.out.println(test_query + ": expected = " + expected + "; observed = " + observed);
+	   }
+	   
+	   System.out.println("\n\n");
    }
    
    
