@@ -234,7 +234,10 @@ public class UrlValidatorTest extends TestCase {
 	   };
 	   
 	   final String[] invalidPaths = {
-			   "/te?st"
+			   "/te?st",
+			   "%ds%c",
+			   "{path}/{path2}",
+			   "/this^character/foo"
 	   };
 	   
 	   final String[] invalidQueries = {
