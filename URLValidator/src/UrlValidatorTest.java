@@ -90,7 +90,7 @@ public class UrlValidatorTest extends TestCase {
 		   test_query = valid_test_queries[i];
 		   expected = true;
 		   observed = urlVal.isValidQuery(test_query);
-		   System.out.println(test_query + ": expected = " + expected + "; observed = " + observed);
+		   System.out.println("expected = " + expected + "\t\tobserved = " + observed + ":\t" + test_query);
 	   }
 	   
 	   // Test invalid query strings
@@ -98,10 +98,35 @@ public class UrlValidatorTest extends TestCase {
 		   test_query = invalid_test_queries[i];
 		   expected = false;
 		   observed = urlVal.isValidQuery(valid_test_queries[i]);
-		   System.out.println(test_query + ": expected = " + expected + "; observed = " + observed);
+		   System.out.println("expected = " + expected + "\tobserved = " + observed + ":\t" + test_query);
 	   }
 	   
-	   System.out.println("\n\n");
+	   System.out.println("\n");
+	   
+	   
+	   System.out.println("\nTESTING PORTS\n");
+	   String[] validPorts = {"", ":80", ":22", ":65535", ":1024",":2",":1000"};
+	   String testUrl;
+	   String validUrl = "http://www.google.com";
+	   
+	   // Test valid ports
+	   for(int i = 0; i < validPorts.length; i++){
+		   expected = true;
+		   testUrl = validUrl + validPorts[i];
+		   observed = urlVal.isValid(testUrl);
+		   System.out.println("expected = " + expected + "\t\tobserved = " + observed + ":\t" + testUrl);
+	   }
+	   
+	   // Test invalid ports
+	   String[] invalidPorts = {":70000", ":65536",	":-1", ":3a7", ":1023"};
+	   for(int i = 0; i < invalidPorts.length; i++){
+		   expected = false;
+		   testUrl = validUrl + invalidPorts[i];
+		   observed = urlVal.isValid(testUrl);
+		   System.out.println("expected = " + expected + "\tobserved = " + observed + ":\t" + testUrl);
+	   }
+	   
+	   System.out.println("\n");
    }
    
    
@@ -146,7 +171,10 @@ public class UrlValidatorTest extends TestCase {
 			   ":80",
 			   ":22",
 			   ":65535",
-			   ":1024"
+			   ":1024",
+			   ":2",
+			   ":1000",
+			   ":999"
 	   };
 	   
 	   final String[] validPaths = {
