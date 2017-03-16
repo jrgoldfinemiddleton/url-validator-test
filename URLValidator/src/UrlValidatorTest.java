@@ -182,10 +182,10 @@ public class UrlValidatorTest extends TestCase {
                            "/",
                            "/src/UrlValidatorTest.java",
                            "/src/word",
-                           "index.html",
-                           "txt/run/word",
-                           "435tewrgwer34_ewfwge",
-                           "erer-erer/erer-erer.mp3"
+                           "/index.html",
+                           "/txt/run/word",
+                           "/435tewrgwer34_ewfwge",
+                           "/erer-erer/erer-erer.mp3"
 	   };
 	   
 	   final String[] validQueries = {
